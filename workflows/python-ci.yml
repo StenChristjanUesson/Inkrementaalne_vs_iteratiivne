@@ -1,0 +1,21 @@
+name: python-ci
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    -  name: Checkout kood
+       uses: actions/checkout@v2
+       
+    -  name: Python installimine
+       uses: actions/setup-python@v2
+       with:
+         python-version: 3.9
+         
+    -  name: Installida Sõltuvused
+       run: pip install pytest
+
+    -  name: käivita testid
+       run: pytest
